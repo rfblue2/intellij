@@ -1,0 +1,4 @@
+build --define=ABSOLUTE_JAVABASE=/nix/store/b24xcf2q4zjm9nbjcjy5asp7hlisp59g-openjdk-headless-11.0.9+11/lib/openjdk
+build --host_javabase=@bazel_tools//tools/jdk:absolute_javabase
+build --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_vanilla
+build --java_toolchain=@bazel_tools//tools/jdk:toolchain_vanilla
