@@ -99,3 +99,24 @@ test_suite(
         "//python:unit_tests",
     ],
 )
+
+load("@rules_python//python:defs.bzl", "py_runtime_pair")
+
+py_runtime(
+    name = "python_runtime",
+    python_version = "PY3",
+    interpreter_path = "/nix/store/z65l1jqvxa58zzwwa3bvglb6asj4y8cv-python3-3.8.5/bin/python",
+)
+
+py_runtime_pair(
+    name = "runtime_pair",
+    py2_runtime = None,
+    py3_runtime = ":python_runtime",
+)
+
+toolchain(
+    name = "py_toolchain",
+    toolchain = ":runtime_pair",
+    toolchain_type = "@bazel_tools//tools/python:toolchain_type",
+)
+

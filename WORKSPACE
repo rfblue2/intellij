@@ -448,3 +448,6 @@ http_archive(
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories")
 
 kotlin_repositories()
+
+register_toolchains("//:py_toolchain")
+
